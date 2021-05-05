@@ -13,7 +13,7 @@
       {:type :validation
        :code :invalid-svg-file})))
 
-(-> "/home/dpr/image.svg" slurp xml/parse)
+(-> "/home/dpr/image.svg" slurp xml/parse read-string)
 
 (defn execute-command [command]
   (->> command
