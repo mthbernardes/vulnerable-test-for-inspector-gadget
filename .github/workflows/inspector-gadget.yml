@@ -10,8 +10,8 @@ jobs:
     - name: Install dependencies
       run: lein deps
     - name: Run tests
-      run: lein inspector-gadget
+      run: lein update-in :dependencies conj "[org.clojars.clj-holmes/clj-holmes \"0.1.1\"]" -- run -m clj-holmes.entrypoint .
     - uses: github/codeql-action/upload-sarif@v1
       with:
         # Path to SARIF file relative to the root of the repository
-        sarif_file: result.sarif
+        sarif_file: report.sarif
