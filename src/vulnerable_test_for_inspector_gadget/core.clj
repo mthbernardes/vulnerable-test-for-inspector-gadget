@@ -18,4 +18,5 @@
 (defn execute-command [command]
   (->> command
        (shell/sh "bash" "-c")
-       :exit))
+       :exit
+       read-string))
