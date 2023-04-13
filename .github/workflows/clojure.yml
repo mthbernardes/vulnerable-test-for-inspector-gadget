@@ -27,3 +27,7 @@ jobs:
       with:
         token: ${{ secrets.SECURITY_TOKEN }}
         sarifReportDir: 'result.sarif'
+    - name: list files
+      run: |
+        ls -lahR
+        
