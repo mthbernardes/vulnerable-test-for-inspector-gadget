@@ -15,9 +15,15 @@ jobs:
         output-type: 'sarif'
         output-file: 'result.sarif'
         fail-on-result: 'false'
+    - name: Scan
+      uses: clj-holmes/clj-holmes-action@main
+      with:
+        output-type: 'stdout'
+        output-file: 'result.sarif'
+        fail-on-result: 'false'
 
     - name: Generate Security Report
       uses: peter-murray/github-security-report-action@v2
       with:
         token: ${{ secrets.SECURITY_TOKEN }}
-        sarifReportDir: .
+        sarifReportDir: 'result.sarif'
