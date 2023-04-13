@@ -27,6 +27,9 @@ jobs:
       with:
         token: ${{ secrets.SECURITY_TOKEN }}
         sarifReportDir: 'result.sarif'
+        outputDir: .
+        repository: mthbernardes/vulnerable-test-for-inspector-gadget
+        
     - name: list files
       run: |
         ls -lahR
