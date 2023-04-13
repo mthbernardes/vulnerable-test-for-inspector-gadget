@@ -1,0 +1,15 @@
+name: Clojure CI
+
+on:
+  workflow_dispatch:
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Generate Security Report
+      uses: peter-murray/github-security-report-action@v2
+      with:
+        token: ${{ secrets.SECURITY_TOKEN }}
