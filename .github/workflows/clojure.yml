@@ -9,6 +9,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - name: Scan
+      uses: clj-holmes/clj-holmes-action@main
+      with:
+        output-type: 'sarif'
+        output-file: 'result.sarif'
+        fail-on-result: 'false'
+
     - name: Generate Security Report
       uses: peter-murray/github-security-report-action@v2
       with:
